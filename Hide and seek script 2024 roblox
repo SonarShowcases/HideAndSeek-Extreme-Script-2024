@@ -1,0 +1,123 @@
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Window = Library.CreateLib("Hide And Seek | Extreme V1.0", "Serpent")
+
+local SeekerTab = Window:NewTab("Seeker")
+local HiderTab = Window:NewTab("Hider")
+
+local SeekerSection = SeekerTab:NewSection("Seeker Features")
+local HiderSection = HiderTab:NewSection("Hider Features")
+
+SeekerSection:NewButton("Trace", "Trace players", function()
+    local success, err = pcall(function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/tYrkZTFc"))()
+    end)
+    if success then
+        print("Trace feature activated")
+    else
+        warn("Error loading Trace feature: " .. err)
+    end
+end)
+
+SeekerSection:NewButton("Chams", "Highlight players", function()
+    local success, err = pcall(function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/VnjSEddU"))()
+    end)
+    if success then
+        print("Chams feature activated")
+    else
+        warn("Error loading Chams feature: " .. err)
+    end
+end)
+
+SeekerSection:NewButton("TpPlayer", "Teleport to player", function()
+    local success, err = pcall(function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/1jXgLNvL"))()
+    end)
+    if success then
+        print("Teleport feature activated")
+    else
+        warn("Error loading TpPlayer feature: " .. err)
+    end
+end)
+
+SeekerSection:NewButton("Names", "Show player names", function()
+    local success, err = pcall(function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/PM2kdVR1"))()
+    end)
+    if success then
+        print("Names feature activated")
+    else
+        warn("Error loading Names feature: " .. err)
+    end
+end)
+
+HiderSection:NewSlider("WalkSpeed", "Adjust your walk speed", 50, 16, function(s)
+    local success, err = pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+    end)
+    if not success then
+        warn("Error setting WalkSpeed: " .. err)
+    end
+end)
+
+HiderSection:NewSlider("JumpPower", "Adjust your jump power", 200, 50, function(s)
+    local success, err = pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+    end)
+    if not success then
+        warn("Error setting JumpPower: " .. err)
+    end
+end)
+
+local OtherTab = Window:NewTab("Other")
+local OtherSection = OtherTab:NewSection("Other Features")
+
+OtherSection:NewButton("Noclip", "Toggle/On off", function()
+    local success, err = pcall(function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/yEWTQ0PS"))()
+    end)
+    if success then
+        print("Noclip feature activated")
+    else
+        warn("Error loading Noclip feature: " .. err)
+    end
+end)
+
+OtherSection:NewButton("InfYield", "Admin", function()
+    local success, err = pcall(function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end)
+    if success then
+        print("InfYield feature activated")
+    else
+        warn("Error loading InfYield feature: " .. err)
+    end
+end)
+
+OtherSection:NewButton("AutoFarm", "Farm Credits", function()
+    local success, err = pcall(function()
+        local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local oldPos = hrp.CFrame
+        for _, v in pairs(workspace.GameObjects:GetChildren()) do
+            if v.Name == "Credit" then
+                hrp.CFrame = v.CFrame
+                hrp.Velocity = Vector3.new(0,0,0)
+                wait(0)
+            end
+        end
+        hrp.CFrame = oldPos
+        hrp.Velocity = Vector3.new(0,0,0)
+    end)
+    if success then
+        print("AutoFarm feature activated")
+    else
+        warn("Error running AutoFarm: " .. err)
+    end
+end)
+
+local CreditsTab = Window:NewTab("Credits")
+local CreditsSection = CreditsTab:NewSection("Credits")
+CreditsSection:NewLabel("ButtonCoder: BreedAO")
+CreditsSection:NewLabel("Scripter: BreedAO")
+CreditsSection:NewLabel("LibraryCreator: xHeptc")
+CreditsSection:NewLabel("InfYield Devs: Edge, Toon, Zwolf")
